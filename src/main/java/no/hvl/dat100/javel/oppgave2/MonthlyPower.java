@@ -7,14 +7,26 @@ public class MonthlyPower {
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
 
-        // TODO
+        for (int day = 0; day < usage.length; day++) {
+            System.out.print("Day " + (day + 1) + ":");
+            for (int hour = 0; hour < usage[day].length; hour++) {
+                System.out.printf("%.2f kWh ", usage[day][hour]);
+            }
+            System.out.println();
+        }
 
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
 
-        // TODO
+       for(int day = 0; day < prices.length; day++){
+           System.out.print("Day " + (day + 1) + ":");
+           for(int hour = 0; hour < prices[day].length; hour++){
+               System.out.printf("%.2f nok ", prices[day][hour]);
+           }
+           System.out.println();
+       }
 
     }
 
@@ -23,7 +35,11 @@ public class MonthlyPower {
 
         double sum = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            for (int j = 0; j < usage[i].length; j++) {
+                sum += usage[i][j];
+            }
+        }
 
         return sum;
     }
@@ -34,7 +50,18 @@ public class MonthlyPower {
         boolean exceeded = false;
         double usage = 0;
 
-        // TODO
+        int day = 0;
+        while (day < powerusage.length && !exceeded) {
+            int hour = 0;
+            while (hour < powerusage[day].length && !exceeded) {
+                usage += powerusage[day][hour];
+                if (usage > threshold) {
+                    exceeded = true;
+                }
+                hour++;
+            }
+            day++;
+        }
 
         return exceeded;
     }
@@ -44,7 +71,11 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        for (int day = 0; day < usage.length; day++) {
+            for (int hour = 0; hour < usage[day].length; hour++) {
+                price += usage[day][hour] * prices[day][hour];
+            }
+        }
 
         return price;
     }
@@ -54,7 +85,20 @@ public class MonthlyPower {
 
         double support = 0;
 
-        // TODO
+        double threshold = 0.75;
+        double share = 0.90;
+
+        for (int day = 0; day < usage.length; day++) {
+            for (int hour = 0; hour < usage[day].length; hour++) {
+                double price = prices[day][hour];
+                double used = usage[day][hour];
+
+                if (price > threshold) {
+                    double above = price - threshold;
+                    support += used * above * share;
+                }
+            }
+        }
 
         return support;
     }
@@ -64,7 +108,10 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        double norgesPrice = 0.50;
+        double totalUsage = computePowerUsage(usage);
+
+        price = norgesPrice * totalUsage;
 
         return price;
     }

@@ -17,13 +17,41 @@ public class MonthMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        //a
+        System.out.print("Power usage:");
+        System.out.println();
+        MonthlyPower.print_PowerUsage(power_usage_month);
 
-         Write code that tests the methods you implement in the MonthlyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        //b
+        System.out.println();
+        System.out.print("Power prices:");
+        System.out.println();
+        MonthlyPower.print_PowerPrices(power_prices_month);
+
+        //c
+        System.out.println();
+        double sumUsage = MonthlyPower.computePowerUsage(power_usage_month);
+        System.out.printf("Total power usage: %.2f kWt%n", sumUsage);
+
+        //d
+        System.out.println();
+        double threshold = 1000;
+        System.out.println("Exceeds threshold " + threshold + ": " + MonthlyPower.exceedThreshold(power_usage_month, threshold));
+
+        //e
+        System.out.println();
+        double totalSpot = MonthlyPower.computeSpotPrice(power_usage_month, power_prices_month);
+        System.out.println("Total price; " + totalSpot + "nok");
+
+        //f
+        System.out.println();
+        double support = MonthlyPower.computePowerSupport(power_usage_month, power_prices_month);
+        System.out.printf("Total power support: %.2f nok%n", support);
+
+        //g
+        System.out.println();
+        double norgesPrice = MonthlyPower.computeNorgesPrice(power_usage_month);
+        System.out.printf("Norgesprice: %.2f nok%n", norgesPrice);
 
     }
 }
