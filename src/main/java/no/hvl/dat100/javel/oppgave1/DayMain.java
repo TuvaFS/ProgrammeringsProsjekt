@@ -16,13 +16,33 @@ public class DayMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        //a
+        DailyPower.printPowerPrices(powerprices_day);
 
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        //b
+        System.out.println();
+        DailyPower.printPowerUsage(powerusage_day);
+        System.out.println();
+
+        //c
+        double powerUsage = DailyPower.computePowerUsage(powerusage_day);
+        System.out.println("Powerusage for a day: " + powerUsage + " kWh");
+
+        //d
+        double spotPricePerDay = DailyPower.computeSpotPrice(powerusage_day, powerprices_day);
+        System.out.println("Powerprice for a day: " + String.format("%.2f", spotPricePerDay) + " NOK");
+
+        //f
+        double powerSupportForADay = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
+        System.out.println("Power support prices for a day: " + String.format("%.2f", powerSupportForADay) + " NOK");
+
+        //g
+        double NorgesPriceForADay = DailyPower.computeNorgesPrice(powerusage_day);
+        System.out.println("Norges-pris for a day: " + String.format("%.2f", NorgesPriceForADay) + " NOK");
+
+        //h
+
+
 
     }
 }

@@ -2,18 +2,38 @@ package no.hvl.dat100.javel.oppgave1;
 
 public class DailyPower {
 
+
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
+        String headerLine = "--------------------";
+        //  Header
+        System.out.println("Electrical spot-price in NOK per kWh for a day");
+        System.out.println(headerLine);
+        System.out.println("| Hours   | Prices |");
+        System.out.println(headerLine);
 
-        // TODO
-
+        // Print prices
+        for (int i = 0; i < prices.length; i++){
+            System.out.println("| " + String.format("%02d", i) + " - " + String.format("%02d", i+1) + " |    " + prices[i] + " |");
+        }
+        System.out.println(headerLine);
     }
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
+        String headerLine = "-------------------";
+        //  Header
+        System.out.println("Electrical day-usage in kWh");
+        System.out.println(headerLine);
+        System.out.println("| Hours   | Usage |");
+        System.out.println(headerLine);
 
-        // TODO
+        //  Print usage
+        for (int i = 0; i <usage.length; i++){
+            System.out.println("| " + String.format("%02d", i) + " - " + String.format("%02d", i+1) + " |  " + usage[i] + " |");
+        }
 
+        System.out.println(headerLine);
     }
 
     // c) compute power usage for a single day
@@ -21,7 +41,9 @@ public class DailyPower {
 
         double sum = 0;
 
-        // TODO
+        for (int i=0; i < usage.length; i++) {
+            sum += usage[i];
+        }
 
         return sum;
     }
@@ -31,7 +53,9 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
+        for (int i=0; i < prices.length; i++){
+            price += (prices[i] * usage[i]);
+        }
 
         return price;
     }
@@ -44,7 +68,12 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
+        double pricePerkWh = usage * price;
+        if (pricePerkWh > THRESHOLD) {
+            double overThreshold = pricePerkWh - THRESHOLD;
+
+            support = overThreshold * PERCENTAGE;
+        }
 
         return support;
     }
@@ -54,24 +83,30 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++){
+            double hourlySupport = getSupport(usage[i], prices[i]);
+
+            support += hourlySupport;
+        }
 
         return support;
     }
 
+    // g) compute norges pris for a single day
     private static final double NORGESPRIS_KWH = 0.5;
 
-    // g) compute norges pris for a single day
     public static double computeNorgesPrice(double[] usage) {
 
         double price = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++){
+            price += (usage[i] * NORGESPRIS_KWH);
+        }
 
         return price;
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         double temp_max = 0;
@@ -81,6 +116,7 @@ public class DailyPower {
         return temp_max;
     }
 
+    // i) find average powerusage
     public static double findAvgPower(double[] usage) {
 
         double average = 0;
