@@ -41,8 +41,12 @@ public class DayMain {
         System.out.println("Norges-pris for a day: " + String.format("%.2f", NorgesPriceForADay) + " NOK");
 
         //h
+        double peakUsage = DailyPower.findPeakUsage(powerusage_day);
+        System.out.println("The highest powerusage in a day is: " + String.format("%.2f", peakUsage) + " kWh");
 
-
+        //i
+        double averageUsage = DailyPower.findAvgPower(powerusage_day);
+        System.out.println("The average powerusage for a day is: " + String.format("%.2f", averageUsage) + " kWh");
 
     }
 }
