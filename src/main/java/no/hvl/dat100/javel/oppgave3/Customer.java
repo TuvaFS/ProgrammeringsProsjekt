@@ -17,45 +17,45 @@ public class Customer {
         this.agreement = agreement;
 
     }
-        // getter/setter methods for all objectvariables
-        // name
-        public void setName(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
-        }
 
-        // email
-        public void setEmail(String email) {
-            this.email = email;
-        }
-        public String getemail() {
-            return email;
-        }
+    // getter/setter methods for all objectvariables
+    // name
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
 
-        // customer_id
-        public void setCustomer_id(int customer_id) {
-            this.customer_id = customer_id;
-        }
-        public int getCustomer_id() {
-            return customer_id;
-        }
+    // email
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getemail() {
+        return email;
+    }
 
-        // agreement
-        public void setAgreement(PowerAgreementType agreement) {
-            this.agreement = agreement;
-        }
-        public PowerAgreementType getAgreement() {
-            return agreement;
-        }
+    // customer_id
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
+    }
+    public int getCustomer_id() {
+        return customer_id;
+    }
+   /*
+    // agreement
+    public void setAgreement(PowerAgreementType agreement) {
+        this.agreement = agreement;
+    }
+    public PowerAgreementType getAgreement() {
+        return agreement;
+    }
 
-
-        // toString method
-        public String toString() {
-        
-        }
-
+    // toString method
+    public String toString() {
+        return "Customer number: " + customer_id + "/n Name: " + name + "/n Email: " + email + "/n Agreement" + agreement;
+    }
+    */
 
 
 }
