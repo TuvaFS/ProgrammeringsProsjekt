@@ -24,38 +24,38 @@ public class Customer {
         this.name = name;
     }
     public String getName() {
-        return name;
+        return this.name;
     }
 
     // email
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getemail() {
-        return email;
+    public String getEmail() {
+        return this.email;
     }
 
     // customer_id
-    public void setCustomer_id(int customer_id) {
+    public void setCustomerId(int customer_id) {
         this.customer_id = customer_id;
     }
-    public int getCustomer_id() {
-        return customer_id;
+    public int getCustomerId() {
+        return this.customer_id;
     }
-   /*
+
     // agreement
     public void setAgreement(PowerAgreementType agreement) {
         this.agreement = agreement;
     }
     public PowerAgreementType getAgreement() {
-        return agreement;
+        return this.agreement;
     }
 
     // toString method
     public String toString() {
-        return "Customer number: " + customer_id + "/n Name: " + name + "/n Email: " + email + "/n Agreement" + agreement;
+        return "CustomerId: " + customer_id + "\nName: " + name + "\nEmail: " + email + "\nAgreement: " + agreement;
     }
-    */
+
 
 
 }
