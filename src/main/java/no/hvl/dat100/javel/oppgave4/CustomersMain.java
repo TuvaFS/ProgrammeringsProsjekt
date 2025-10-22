@@ -12,6 +12,9 @@ public class CustomersMain {
         System.out.println("==============");
         System.out.println();
 
+        Customers myCustomers = new Customers(10);
+        System.out.println("Array created. ");
+
         /*
         TODO
 

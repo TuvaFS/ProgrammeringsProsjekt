@@ -8,9 +8,7 @@ public class Customers {
 
     // a) Complete constructor
     public Customers(int size) {
-
-        // TODO
-
+        this.customers = new Customer[size];
     }
 
     // b) count number of non-null references
@@ -18,8 +16,7 @@ public class Customers {
 
 
         int count = 0;
-
-        // TODO
+        
 
         return count;
     }
