@@ -7,14 +7,35 @@ public class MonthlyPower {
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
 
-        for (int day = 0; day < usage.length; day++) {
-            System.out.print("Day " + (day + 1) + ":");
-            for (int hour = 0; hour < usage[day].length; hour++) {
-                System.out.printf("%.2f kWh ", usage[day][hour]);
+        final int LENGTH_MND = usage.length;        //antall dager
+        final int LENGTH_DAY = usage[0].length;     //antall timer
+
+        String headerLine = "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+
+        //Header
+        System.out.println("Electrical power usage for a month in kWh: ");
+        System.out.println(headerLine);
+        System.out.print("| Hour / Day |");
+        for (int day = 1; day <= LENGTH_MND; day++) {
+            System.out.printf("   %02d   |", day);
+        }
+        System.out.println();
+        System.out.println(headerLine);
+
+        //Hours and variables
+        for (int i = 0; i < LENGTH_DAY; i++) {
+
+            System.out.print("|  " + String.format("%02d", i) + " - " + String.format("%02d", i+1) + "   |");
+
+            for (int j = 0; j < LENGTH_MND; j++) {
+
+                System.out.printf("  %.2f  |", usage[j][i]);
+
             }
             System.out.println();
         }
 
+        System.out.println(headerLine);
     }
 
     // b) print power prices for a month
